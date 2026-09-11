@@ -1,0 +1,186 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #111;
+  color: #aaa;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  border-bottom: 1px solid #222;
+}
+
+.logo {
+  color: #ddd;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  border: none;
+  background: transparent;
+  color: #777;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+button:hover {
+  color: #ddd;
+  background: #1d1d1d;
+}
+
+button.selected,
+button.active {
+  color: #ddd;
+  background: #242424;
+}
+
+main {
+  width: min(1000px, 90%);
+  margin: 70px auto;
+}
+
+.settings {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 35px;
+}
+
+.setting-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.setting-group span {
+  color: #555;
+  margin-right: 5px;
+}
+
+.typing-area {
+  position: relative;
+}
+
+#timer {
+  color: #e2b714;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+#words {
+  min-height: 150px;
+  font-size: 25px;
+  line-height: 1.7;
+  word-spacing: 7px;
+  color: #666;
+  user-select: none;
+}
+
+.word {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.correct {
+  color: #ddd;
+}
+
+.incorrect {
+  color: #e05252;
+}
+
+.current {
+  border-bottom: 2px solid #e2b714;
+}
+
+#input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#restart {
+  display: block;
+  margin: 35px auto;
+  font-size: 18px;
+}
+
+.results {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  margin-top: 50px;
+  padding: 30px;
+  border-top: 1px solid #222;
+}
+
+.results div {
+  text-align: center;
+}
+
+.results span {
+  display: block;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.results strong {
+  color: #e2b714;
+  font-size: 32px;
+}
+
+.hidden {
+  display: none;
+}
+
+footer {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  color: #444;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  header {
+    padding: 0 20px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  main {
+    width: 90%;
+    margin-top: 40px;
+  }
+
+  #words {
+    font-size: 21px;
+  }
+
+  .settings {
+    flex-wrap: wrap;
+  }
+
+  .results {
+    gap: 25px;
+  }
+}
