@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MonkeyTyping</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo">🐒 MonkeyTyping</div>
+
+    <nav>
+      <button class="nav-btn active">Typing</button>
+      <button class="nav-btn">Practice</button>
+      <button class="nav-btn">Units</button>
+      <button class="nav-btn">Leaderboard</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="settings">
+      <div class="setting-group">
+        <span>time</span>
+        <button data-time="15">15</button>
+        <button data-time="30" class="selected">30</button>
+        <button data-time="60">60</button>
+        <button data-time="120">120</button>
+      </div>
+
+      <div class="setting-group">
+        <span>mode</span>
+        <button class="selected">words</button>
+      </div>
+    </div>
+
+    <section class="typing-area">
+      <div id="timer">30</div>
+
+      <div id="words"></div>
+
+      <input
+        id="input"
+        type="text"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        autofocus
+      >
+
+      <button id="restart">↻ Restart</button>
+    </section>
+
+    <section id="results" class="results hidden">
+      <div>
+        <span>WPM</span>
+        <strong id="finalWpm">0</strong>
+      </div>
+
+      <div>
+        <span>Accuracy</span>
+        <strong id="finalAccuracy">0%</strong>
+      </div>
+
+      <div>
+        <span>Characters</span>
+        <strong id="finalCharacters">0</strong>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    MonkeyTyping • Type fast. Type better.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
