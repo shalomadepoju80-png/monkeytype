@@ -1,48 +1,91 @@
+/* =========================================
+   MONKEYTYPING
+   FULL STYLE SHEET
+========================================= */
+
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+
   background: #111;
   color: #aaa;
-  font-family: Arial, Helvetica, sans-serif;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 }
+
+/* =========================================
+   HEADER
+========================================= */
 
 header {
   height: 75px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding: 0 6%;
+
   border-bottom: 1px solid #222;
+
+  background: #111;
 }
 
 .logo {
   color: #ddd;
+
   font-size: 23px;
   font-weight: bold;
+
+  white-space: nowrap;
 }
 
 nav {
   display: flex;
-  gap: 8px;
+  align-items: center;
+
+  gap: 6px;
 }
 
 button {
   border: none;
+  outline: none;
+
   background: transparent;
   color: #777;
+
   cursor: pointer;
+
   font-size: 15px;
+
   border-radius: 6px;
+
   padding: 8px 12px;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
 }
 
 button:hover {
   color: #ddd;
   background: #1d1d1d;
+}
+
+button:active {
+  transform: scale(0.97);
 }
 
 button.selected,
@@ -51,116 +94,590 @@ button.active {
   background: #242424;
 }
 
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* =========================================
+   MAIN
+========================================= */
+
 main {
   width: min(1000px, 90%);
+
   margin: 70px auto;
+
+  min-height: calc(100vh - 220px);
 }
+
+/* =========================================
+   PAGE SYSTEM
+========================================= */
+
+.hidden-page {
+  display: none;
+}
+
+.page {
+  width: 100%;
+}
+
+/* =========================================
+   SETTINGS
+========================================= */
 
 .settings {
   display: flex;
+  align-items: center;
+
   gap: 30px;
+
   margin-bottom: 35px;
 }
 
 .setting-group {
   display: flex;
   align-items: center;
+
   gap: 5px;
 }
 
 .setting-group span {
   color: #555;
+
   margin-right: 5px;
+
+  font-size: 14px;
 }
+
+/* =========================================
+   TYPING AREA
+========================================= */
 
 .typing-area {
   position: relative;
+
+  width: 100%;
 }
 
 #timer {
   color: #e2b714;
+
   font-size: 22px;
+  font-weight: bold;
+
   margin-bottom: 15px;
 }
 
 #words {
   min-height: 150px;
+
+  color: #666;
+
   font-size: 25px;
   line-height: 1.7;
+
   word-spacing: 7px;
-  color: #666;
+
   user-select: none;
+
+  overflow-wrap: break-word;
 }
 
 .word {
   display: inline-block;
+
   margin-right: 8px;
+
+  border-bottom: 2px solid transparent;
+
+  transition:
+    color 0.1s ease,
+    border-color 0.1s ease;
 }
 
-.correct {
+.word.correct {
   color: #ddd;
 }
 
-.incorrect {
+.word.incorrect {
   color: #e05252;
 }
 
-.current {
+.word.current {
   border-bottom: 2px solid #e2b714;
 }
 
+/* =========================================
+   HIDDEN TYPING INPUT
+========================================= */
+
 #input {
   position: absolute;
+
+  width: 1px;
+  height: 1px;
+
   opacity: 0;
+
   pointer-events: none;
+
+  border: none;
+  outline: none;
 }
+
+/* =========================================
+   RESTART BUTTON
+========================================= */
 
 #restart {
   display: block;
+
   margin: 35px auto;
+
+  color: #777;
+
   font-size: 18px;
 }
 
+#restart:hover {
+  color: #ddd;
+}
+
+/* =========================================
+   RESULTS
+========================================= */
+
 .results {
   display: flex;
+
   justify-content: center;
+  align-items: center;
+
   gap: 70px;
+
   margin-top: 50px;
-  padding: 30px;
+
+  padding: 30px 20px;
+
   border-top: 1px solid #222;
 }
 
 .results div {
+  min-width: 100px;
+
   text-align: center;
 }
 
 .results span {
   display: block;
+
   color: #666;
+
   margin-bottom: 8px;
+
+  font-size: 14px;
 }
 
 .results strong {
+  display: block;
+
   color: #e2b714;
+
   font-size: 32px;
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
-footer {
-  position: fixed;
-  bottom: 20px;
+/* =========================================
+   PAGE TITLES
+========================================= */
+
+.page-title {
+  margin-bottom: 35px;
+}
+
+.page-title h1 {
+  margin: 0 0 8px;
+
+  color: #ddd;
+
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.page-title p {
+  margin: 0;
+
+  color: #666;
+
+  font-size: 15px;
+}
+
+/* =========================================
+   COURSE PROGRESS
+========================================= */
+
+.course-progress {
+  padding: 20px;
+
+  margin-bottom: 30px;
+
+  background: #181818;
+
+  border: 1px solid #242424;
+
+  border-radius: 10px;
+}
+
+.progress-top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+}
+
+.progress-top span {
+  color: #888;
+
+  font-size: 14px;
+}
+
+.progress-top strong {
+  color: #e2b714;
+
+  font-size: 14px;
+}
+
+.progress-bar {
   width: 100%;
+  height: 8px;
+
+  background: #292929;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+#progressFill {
+  height: 100%;
+
+  width: 1%;
+
+  background: #e2b714;
+
+  border-radius: 20px;
+
+  transition: width 0.3s ease;
+}
+
+/* =========================================
+   UNITS GRID
+========================================= */
+
+.units-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 12px;
+}
+
+/* =========================================
+   UNIT CARD
+========================================= */
+
+.unit {
+  position: relative;
+
+  background: #181818;
+
+  border: 1px solid #252525;
+
+  border-radius: 9px;
+
+  padding: 18px;
+
+  min-height: 190px;
+
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+
+.unit:hover {
+  border-color: #3a3a3a;
+
+  background: #1a1a1a;
+
+  transform: translateY(-2px);
+}
+
+.unit-number {
+  color: #555;
+
+  font-size: 12px;
+  font-weight: bold;
+
+  letter-spacing: 0.5px;
+}
+
+.unit h3 {
+  color: #ddd;
+
+  margin: 7px 0;
+
+  font-size: 17px;
+}
+
+.unit p {
+  color: #666;
+
+  font-size: 13px;
+
+  line-height: 1.4;
+
+  min-height: 36px;
+
+  margin: 0 0 8px;
+}
+
+.unit button {
+  margin-top: 8px;
+
+  background: #242424;
+
+  color: #aaa;
+}
+
+.unit button:hover {
+  background: #e2b714;
+
+  color: #111;
+}
+
+.unit.locked {
+  opacity: 0.45;
+}
+
+.unit.locked:hover {
+  transform: none;
+
+  border-color: #252525;
+}
+
+.unit.locked button {
+  cursor: not-allowed;
+}
+
+.unit.completed {
+  border-color: #596b32;
+}
+
+.unit.completed h3 {
+  color: #9db65a;
+}
+
+.status {
+  min-height: 16px;
+
+  color: #777;
+
+  font-size: 12px;
+}
+
+/* =========================================
+   PRACTICE
+========================================= */
+
+.practice-card {
+  padding: 30px;
+
+  background: #181818;
+
+  border: 1px solid #252525;
+
+  border-radius: 10px;
+}
+
+.practice-card h2 {
+  color: #ddd;
+
+  margin-top: 0;
+
+  margin-bottom: 10px;
+}
+
+.practice-card p {
+  color: #666;
+
+  margin-bottom: 20px;
+}
+
+.start-practice {
+  background: #e2b714;
+
+  color: #111;
+
+  font-weight: bold;
+
+  padding: 10px 16px;
+}
+
+.start-practice:hover {
+  background: #f0c51c;
+
+  color: #111;
+}
+
+/* =========================================
+   LEADERBOARD
+========================================= */
+
+.leaderboard-card {
+  background: #181818;
+
+  border: 1px solid #252525;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+
+.rank {
+  display: grid;
+
+  grid-template-columns: 70px 1fr 80px;
+
+  align-items: center;
+
+  padding: 20px;
+
+  border-bottom: 1px solid #242424;
+}
+
+.rank:last-child {
+  border-bottom: none;
+}
+
+.rank span {
+  color: #555;
+
+  font-weight: bold;
+}
+
+.rank strong {
+  color: #aaa;
+}
+
+.rank b {
+  color: #e2b714;
+
+  text-align: right;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+  width: 100%;
+
+  padding: 20px;
+
   text-align: center;
+
   color: #444;
+
   font-size: 13px;
 }
 
-@media (max-width: 700px) {
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #292929;
+
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
+
+/* =========================================
+   SELECTION
+========================================= */
+
+::selection {
+  background: #e2b714;
+  color: #111;
+}
+
+/* =========================================
+   FOCUS
+========================================= */
+
+button:focus-visible {
+  outline: 2px solid #e2b714;
+
+  outline-offset: 2px;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
   header {
+    padding: 0 4%;
+  }
+
+  main {
+    width: 92%;
+
+    margin-top: 50px;
+  }
+
+  .units-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #words {
+    font-size: 23px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  header {
+    height: 65px;
+
     padding: 0 20px;
+  }
+
+  .logo {
+    font-size: 19px;
   }
 
   nav {
@@ -169,18 +686,108 @@ footer {
 
   main {
     width: 90%;
-    margin-top: 40px;
-  }
 
-  #words {
-    font-size: 21px;
+    margin-top: 40px;
   }
 
   .settings {
     flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+  }
+
+  #words {
+    font-size: 21px;
+
+    line-height: 1.65;
+
+    word-spacing: 4px;
   }
 
   .results {
     gap: 25px;
+
+    flex-wrap: wrap;
+
+    margin-top: 35px;
+  }
+
+  .results div {
+    min-width: 80px;
+  }
+
+  .results strong {
+    font-size: 27px;
+  }
+
+  .page-title h1 {
+    font-size: 28px;
+  }
+
+  .units-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+  }
+
+  .unit {
+    min-height: 175px;
+
+    padding: 15px;
+  }
+
+  .unit h3 {
+    font-size: 15px;
+  }
+
+  .course-progress {
+    padding: 16px;
+  }
+
+  .practice-card {
+    padding: 22px;
+  }
+}
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 450px) {
+
+  .settings {
+    display: block;
+  }
+
+  .setting-group {
+    margin-bottom: 10px;
+
+    flex-wrap: wrap;
+  }
+
+  #words {
+    font-size: 19px;
+  }
+
+  .units-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .unit {
+    min-height: 150px;
+  }
+
+  .results {
+    gap: 15px;
+  }
+
+  .results div {
+    min-width: 70px;
+  }
+
+  .results strong {
+    font-size: 24px;
   }
 }
